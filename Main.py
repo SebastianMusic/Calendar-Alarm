@@ -66,16 +66,16 @@ def check_events(service, event_queue):
 pygame.mixer.init()    
     
 def play_alarm_sound(sound_file):
-
     pygame.mixer.music.load(sound_file)
-    pygame.mixer.music.play()
+    pygame.mixer.music.play(-1)
     
 def set_volume(volume_level): # volume_level: float between 0.0 and 1.0
     pygame.mixer.music.set_volume(volume_level)
     
     
 def stop_alarm():
-    pygame.mixer.music.stop()
+    if pygame.mixer.music.get_busy(): # check if alarm is playing
+        pygame.mixer.music.stop()
 
 
 def create_gui(event_queue, service):
