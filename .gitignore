@@ -3,3 +3,4 @@ credentials.json
 token.json
 CalendarID.txt
 venv
+.DS_Store
